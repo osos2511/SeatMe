@@ -36,7 +36,7 @@ class _SignUpState extends State<SignUp> {
 
     return Scaffold(
       appBar: customAppBar(
-        title: "SignIn",
+        title: "SignUp",
         screenWidth: MediaQuery.of(context).size.width,
       ),
       body: SingleChildScrollView(
