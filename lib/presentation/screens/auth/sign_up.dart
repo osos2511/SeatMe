@@ -3,7 +3,7 @@ import '../../../core/widgets/app_Bar.dart';
 import '../../../core/widgets/custom_textForm_field.dart';
 import '../../../core/widgets/dialog_success.dart';
 import '../../../core/widgets/shared_button.dart';
-import '../../../core/routes_manager.dart'; // تأكد من استيراد المسارات
+import '../../../core/routes_manager.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
