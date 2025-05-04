@@ -85,6 +85,9 @@ class _SignInState extends State<SignIn> {
                   children: [
                     InkWell(
                       onTap: () {
+                        Navigator.pushReplacementNamed(
+                            context, RoutesManager.enter_email_code_Route
+                        );
                       },
                       child: const Text(
                         "Forgot Password?",

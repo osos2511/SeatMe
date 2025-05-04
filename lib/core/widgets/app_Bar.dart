@@ -19,7 +19,7 @@ AppBar customAppBar({
       title,
       style: GoogleFonts.alexandria(
         color: Colors.white,
-        fontSize: screenWidth * 0.08,
+        fontSize: screenWidth * 0.07,
         fontWeight: FontWeight.w500,
       ),
     ),
