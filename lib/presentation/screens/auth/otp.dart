@@ -105,76 +105,78 @@ class _OtpState extends State<Otp> {
     final double screenHeight = screenSize.height;
     return  Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 70),
-             
-            
-            Text(
-              'OTP Code verifcation',
-              style: TextStyle(
-                          color: Color(0xff93714A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),
-            ),
-            const SizedBox(height: 25),
-Text(
-              'Enter code sent to +201******71',
-               textAlign: TextAlign.center,
-              style: TextStyle(
-                          color: Color(0xff93714A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),),
-            
-                        const SizedBox(height: 45),
-
- PinCodeTextField(
-              length: 4,
-              obscureText: true,
-              keyboardType: TextInputType.number,
-              animationType: AnimationType.fade,
-              pinTheme: PinTheme(
-                shape: PinCodeFieldShape.box,
-                borderRadius: BorderRadius.circular(10),
-                fieldHeight: 48.h,
-                fieldWidth: 65.w,
-                inactiveColor: Color(0xff93714A),
-                activeColor: Color(0xffB1630D),
-                selectedColor: Color(0xffB1630D),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 70),
+               
+              
+              Text(
+                'OTP Code verifcation',
+                style: TextStyle(
+                            color: Color(0xff93714A),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16
+                          ),
               ),
-              onChanged: (value) {
-                setState(() => Otp = value);
-              },
-              appContext: context,
-            ),
-             const SizedBox(height: 25),
-Text(
-              'Resend code in 55 s',
-               textAlign: TextAlign.center,
-              style: TextStyle(
-                          color: Color(0xff93714A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),
-            ),
-
-            SizedBox(height: 40),
-
-                           SharedButton(
-                  text: "Continue",
-                  onPressed:(){ Otp.length == 4 ? 
-                 _showSuccessDialog()
-                 : null;},
-                   width: screenWidth * 0.7,
-                  height: screenHeight * 0.06,
-                  borderRadius: 4,)
-                   
-          ],
+              const SizedBox(height: 25),
+        Text(
+                'Enter code sent to +201******71',
+                 textAlign: TextAlign.center,
+                style: TextStyle(
+                            color: Color(0xff93714A),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16
+                          ),),
+              
+                          const SizedBox(height: 45),
+        
+         PinCodeTextField(
+                length: 4,
+                obscureText: true,
+                keyboardType: TextInputType.number,
+                animationType: AnimationType.fade,
+                pinTheme: PinTheme(
+                  shape: PinCodeFieldShape.box,
+                  borderRadius: BorderRadius.circular(10),
+                  fieldHeight: 48.h,
+                  fieldWidth: 65.w,
+                  inactiveColor: Color(0xff93714A),
+                  activeColor: Color(0xffB1630D),
+                  selectedColor: Color(0xffB1630D),
+                ),
+                onChanged: (value) {
+                  setState(() => Otp = value);
+                },
+                appContext: context,
+              ),
+               const SizedBox(height: 25),
+        Text(
+                'Resend code in 55 s',
+                 textAlign: TextAlign.center,
+                style: TextStyle(
+                            color: Color(0xff93714A),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16
+                          ),
+              ),
+        
+              SizedBox(height: 40),
+        
+                             SharedButton(
+                    text: "Continue",
+                    onPressed:(){ Otp.length == 4 ? 
+                   _showSuccessDialog()
+                   : null;},
+                     width: screenWidth * 0.7,
+                    height: screenHeight * 0.06,
+                    borderRadius: 4,)
+                     
+            ],
+          ),
         ),
       ),
     );
