@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatme/core/theme/colors.dart';
 
 class SharedButton extends StatelessWidget {
   final String text;
@@ -16,7 +17,7 @@ class SharedButton extends StatelessWidget {
     required this.width,
     required this.height,
     this.borderRadius = 6,
-    this.backgroundColor = const Color(0xff93714A),
+    this.backgroundColor = ColorApp.primaryColor,
   });
 
   @override

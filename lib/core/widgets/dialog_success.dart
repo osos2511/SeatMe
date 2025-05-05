@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seatme/core/theme/colors.dart';
 
 void showSuccessDialog(BuildContext context, String message) {
   showDialog(
@@ -13,7 +14,7 @@ void showSuccessDialog(BuildContext context, String message) {
       title: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Color(0xff93714A),
+          color: ColorApp.primaryColor,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         ),
         child: Row(
@@ -24,7 +25,7 @@ void showSuccessDialog(BuildContext context, String message) {
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.check, color: Color(0xff93714A), size: 24),
+              child: const Icon(Icons.check, color: ColorApp.primaryColor, size: 24),
             ),
             const SizedBox(width: 12),
             const Text(
@@ -50,7 +51,7 @@ void showSuccessDialog(BuildContext context, String message) {
           padding: const EdgeInsets.only(right: 8, bottom: 8),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff93714A),
+              backgroundColor: ColorApp.primaryColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),

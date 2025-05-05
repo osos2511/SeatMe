@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seatme/core/routes_manager.dart';
+import 'package:seatme/core/theme/colors.dart';
 import '../../../core/widgets/app_Bar.dart';
 import '../../../core/widgets/custom_textForm_field.dart';
 import '../../../core/widgets/dialog_success.dart';
@@ -92,7 +93,7 @@ class _SignInState extends State<SignIn> {
                       child: const Text(
                         "Forgot Password?",
                         style: TextStyle(
-                          color: Color(0xff93714A),
+                          color: ColorApp.primaryColor,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -128,7 +129,7 @@ class _SignInState extends State<SignIn> {
                       child: const Text(
                         "SignUp",
                         style: TextStyle(
-                          color: Color(0xff93714A),
+                          color: ColorApp.primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

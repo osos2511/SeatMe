@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seatme/core/theme/colors.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -39,7 +40,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   @override
   Widget build(BuildContext context) {
-    const Color mainColor = Color(0xff93714A);
+    const Color mainColor = ColorApp.primaryColor;
 
     return TextFormField(
       onChanged: widget.onChanged,
@@ -54,7 +55,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           color: mainColor,
         ),
         hintText: widget.hintText,
-        hintStyle: const TextStyle(color: Color(0xff535353)),
+        hintStyle: const TextStyle(color: ColorApp.primaryColor),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: const BorderSide(width: 2, color: mainColor),

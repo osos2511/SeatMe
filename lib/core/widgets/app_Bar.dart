@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatme/core/theme/colors.dart';
 
 AppBar customAppBar({
   required String title,
   required double screenWidth,
-  Color backgroundColor = const Color(0xff93714A),
+  Color backgroundColor = ColorApp.primaryColor,
 }) {
   return AppBar(
     leading: SizedBox(),
