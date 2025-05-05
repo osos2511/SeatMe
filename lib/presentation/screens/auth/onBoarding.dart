@@ -71,7 +71,6 @@ class _OnBoardingState extends State<OnBoarding> {
               onGetStarted: _goToHome, // تمرير الدالة نفسها هنا
             ),
           ),
-          // زر Skip في الأعلى
           Positioned(
             top: 50,
             right: 20,
