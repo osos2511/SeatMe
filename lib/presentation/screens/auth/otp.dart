@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:seatme/core/routes_manager.dart';
-
 import 'package:seatme/core/widgets/shared_button.dart';
 
 class Otp extends StatefulWidget {
@@ -15,12 +13,11 @@ class Otp extends StatefulWidget {
 }
 
 class _OtpState extends State<Otp> {
-  
   String Otp = "";
-    int secondsRemaining = 30;
+  int secondsRemaining = 30;
   Timer? _timer;
   bool enableResend = false;
-    @override
+  @override
   void initState() {
     super.initState();
     startTimer();
@@ -45,13 +42,12 @@ class _OtpState extends State<Otp> {
       }
     });
   }
+
   void _showSuccessDialog() {
-    
     showDialog(
       context: context,
-      barrierDismissible: false, 
+      barrierDismissible: false,
       builder: (BuildContext context) {
-        
         return AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
@@ -63,47 +59,46 @@ class _OtpState extends State<Otp> {
               SizedBox(height: 5),
               Text(
                 "Congratulation",
-                style:TextStyle(
-                          color: Color(0xff93714A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),
+                style: TextStyle(
+                  color: Color(0xff93714A),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
               SizedBox(height: 15),
               Text(
                 "Your account is ready. You will be redirected to the home page.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                          color: Color(0xff93714A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),
+                  color: Color(0xff93714A),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ],
           ),
         );
       },
-    );  Future.delayed(Duration(seconds: 3), () {
-     Navigator.pushNamed(
-                          context,
-                          RoutesManager.reset_pass_Route,
-                        );
+    );
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushNamed(context, RoutesManager.reset_pass_Route);
     });
   }
 
   @override
-    void dispose() {
+  void dispose() {
     // for (var controller in controllers) {
     //   controller.dispose();
     // }
     _timer?.cancel();
     super.dispose();
   }
+
   Widget build(BuildContext context) {
-     final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.of(context).size;
     final double screenWidth = screenSize.width;
     final double screenHeight = screenSize.height;
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -111,29 +106,29 @@ class _OtpState extends State<Otp> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 70),
-             
-            
+
             Text(
               'OTP Code verifcation',
               style: TextStyle(
-                          color: Color(0xff93714A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),
+                color: Color(0xff93714A),
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
             const SizedBox(height: 25),
-Text(
+            Text(
               'Enter code sent to +201******71',
-               textAlign: TextAlign.center,
+              textAlign: TextAlign.center,
               style: TextStyle(
-                          color: Color(0xff93714A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),),
-            
-                        const SizedBox(height: 45),
+                color: Color(0xff93714A),
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
 
- PinCodeTextField(
+            const SizedBox(height: 45),
+
+            PinCodeTextField(
               length: 4,
               obscureText: true,
               keyboardType: TextInputType.number,
@@ -152,32 +147,31 @@ Text(
               },
               appContext: context,
             ),
-             const SizedBox(height: 25),
-Text(
+            const SizedBox(height: 25),
+            Text(
               'Resend code in 55 s',
-               textAlign: TextAlign.center,
+              textAlign: TextAlign.center,
               style: TextStyle(
-                          color: Color(0xff93714A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16
-                        ),
+                color: Color(0xff93714A),
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
 
             SizedBox(height: 40),
 
-                           SharedButton(
-                  text: "Continue",
-                  onPressed:(){ Otp.length == 4 ? 
-                 _showSuccessDialog()
-                 : null;},
-                   width: screenWidth * 0.7,
-                  height: screenHeight * 0.06,
-                  borderRadius: 4,)
-                   
+            SharedButton(
+              text: "Continue",
+              onPressed: () {
+                Otp.length == 4 ? _showSuccessDialog() : null;
+              },
+              width: screenWidth * 0.7,
+              height: screenHeight * 0.06,
+              borderRadius: 4,
+            ),
           ],
         ),
       ),
     );
   }
-  
 }
