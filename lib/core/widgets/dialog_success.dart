@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seatme/core/theme/colors.dart';
 
-void showSuccessDialog(BuildContext context, String message) {
+void showSuccessDialog(BuildContext context, String message, String nextRoute) {
   showDialog(
     context: context,
     barrierDismissible: false,
@@ -21,7 +21,7 @@ void showSuccessDialog(BuildContext context, String message) {
           children: [
             Container(
               padding: const EdgeInsets.all(6),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),
@@ -56,7 +56,10 @@ void showSuccessDialog(BuildContext context, String message) {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              Navigator.pop(context); // close dialog first
+              Navigator.pushReplacementNamed(context, nextRoute); // then navigate
+            },
             child: const Text(
               "OK",
               style: TextStyle(

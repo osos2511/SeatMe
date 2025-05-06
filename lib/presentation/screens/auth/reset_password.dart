@@ -84,6 +84,7 @@ class _ResetPassState extends State<ResetPass> {
                       showSuccessDialog(
                         context,
                         "Your registration has been completed successfully!",
+                        RoutesManager.signInRoute
                       );
                     }
                   },

@@ -119,6 +119,7 @@ class _SignUpState extends State<SignUp> {
                       showSuccessDialog(
                         context,
                         "Your registration has been completed successfully!",
+                        RoutesManager.mainTabsRoute
                       );
                     }
                   },

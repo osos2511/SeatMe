@@ -4,8 +4,9 @@ import 'package:seatme/presentation/screens/auth/otp.dart';
 import 'package:seatme/presentation/screens/auth/reset_password.dart';
 import 'package:seatme/presentation/screens/auth/sign_in.dart';
 import 'package:seatme/presentation/screens/auth/sign_up.dart';
+import 'package:seatme/presentation/screens/main_screen/tabs/main_tabs.dart';
 
-import '../presentation/screens/auth/onBoarding.dart';
+import '../presentation/screens/onBoarding/onBoarding.dart';
 
 
 class RoutesManager {
@@ -15,6 +16,7 @@ class RoutesManager {
   static const String enter_email_code_Route = '/enter_email_code';
   static const String reset_pass_Route = '/reset_pass_code';
   static const String onBoardingRoute = '/onBoarding';
+  static const String mainTabsRoute = '/mainTabs';
 
 
 
@@ -37,7 +39,7 @@ class RoutesManager {
           case enter_email_code_Route:
         {
           return MaterialPageRoute(
-              builder: (context) =>enteremailorpass());
+              builder: (context) =>EnterEmailOrPass());
         }
         case otpRoute:
         {
@@ -51,8 +53,10 @@ class RoutesManager {
         }
       case onBoardingRoute:{
         return MaterialPageRoute(builder: (context) =>OnBoarding());
+    }
 
-
+      case mainTabsRoute:{
+        return MaterialPageRoute(builder: (context) => MainTabs(),);
     }
 
        

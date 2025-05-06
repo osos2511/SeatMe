@@ -5,22 +5,20 @@ import '../../../core/widgets/custom_textForm_field.dart';
 import '../../../core/widgets/dialog_success.dart';
 import '../../../core/widgets/shared_button.dart';
 
-class enteremailorpass extends StatefulWidget {
-  const enteremailorpass({super.key});
+class EnterEmailOrPass extends StatefulWidget {
+  const EnterEmailOrPass({super.key});
 
   @override
-  State<enteremailorpass> createState() => _enteremailorpassState();
+  State<EnterEmailOrPass> createState() => _EnterEmailOrPassState();
 }
 
-class _enteremailorpassState extends State<enteremailorpass> {
+class _EnterEmailOrPassState extends State<EnterEmailOrPass> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController companyNameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
 
   @override
   void dispose() {
-    companyNameController.dispose();
-    phoneController.dispose();  
+    phoneController.dispose();
     super.dispose();
   }
 
@@ -32,8 +30,8 @@ class _enteremailorpassState extends State<enteremailorpass> {
 
     return Scaffold(
       appBar: customAppBar(
-        title: "forgot password",
-        screenWidth: MediaQuery.of(context).size.width,
+        title: "Forgot Password",
+        screenWidth: screenWidth,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -46,20 +44,17 @@ class _enteremailorpassState extends State<enteremailorpass> {
             key: _formKey,
             child: Column(
               children: [
-               
                 CustomTextFormField(
                   controller: phoneController,
                   labelText: "Phone Number or Email",
                   hintText: "Enter your phone number or email",
-                  keyboardType: TextInputType.text, // نستخدم TextInputType.text لأنه يدعم كلا النوعين
+                  keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Phone number or email is required";
                     } else if (RegExp(r'^\d{9,15}$').hasMatch(value)) {
-                      // تحقق من رقم الهاتف
                       return null;
                     } else if (RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$').hasMatch(value)) {
-                      // تحقق من البريد الإلكتروني
                       return null;
                     } else {
                       return "Enter a valid phone number or email";
@@ -67,28 +62,22 @@ class _enteremailorpassState extends State<enteremailorpass> {
                   },
                 ),
                 SizedBox(height: screenHeight * 0.05),
-                
                 SharedButton(
                   text: "Send",
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       showSuccessDialog(
                         context,
-                        "Your code has been send successfully!",
-                      );Future.delayed(Duration(seconds: 3), () {
-                        Navigator.pushReplacementNamed(
-                            context, RoutesManager.otpRoute
-                        );
-                      });
+                        "Your code has been sent successfully!",
+                        RoutesManager.otpRoute,
+                      );
                     }
-                    
                   },
                   width: screenWidth * 0.7,
                   height: screenHeight * 0.06,
                   borderRadius: 4,
                 ),
                 SizedBox(height: screenHeight * 0.02),
-                
               ],
             ),
           ),

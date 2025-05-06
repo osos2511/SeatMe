@@ -29,6 +29,12 @@ class _OnBoardingState extends State<OnBoarding> {
       "background": "assets/bg-3.png",
       "logo": "assets/logo-3.png",
     },
+    {
+      "title": "Easy Ordering",
+      "description": "An authentic Lebanese experience in the heart of oriental flavors.",
+      "background": "assets/bg-4.png",
+      "logo": "assets/logo-4.png",
+    },
   ];
 
   void _nextPage() {
@@ -67,8 +73,9 @@ class _OnBoardingState extends State<OnBoarding> {
               isLastPage: index == onboardingData.length - 1,
               currentIndex: index,
               currentPage: currentPage,
+              totalPages: onboardingData.length, // ⬅️ تمرير عدد الصفحات
               onNext: _nextPage,
-              onGetStarted: _goToHome, // تمرير الدالة نفسها هنا
+              onGetStarted: _goToHome,
             ),
           ),
           Positioned(
@@ -100,6 +107,7 @@ class OnboardingPage extends StatelessWidget {
   final bool isLastPage;
   final int currentIndex;
   final int currentPage;
+  final int totalPages;
   final VoidCallback onNext;
   final VoidCallback onGetStarted;
 
@@ -111,6 +119,7 @@ class OnboardingPage extends StatelessWidget {
     required this.isLastPage,
     required this.currentIndex,
     required this.currentPage,
+    required this.totalPages,
     required this.onNext,
     required this.onGetStarted,
   });
@@ -134,77 +143,83 @@ class OnboardingPage extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(32),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AnimatedContainer(
-                duration: Duration(milliseconds: 300),
-                width: isActive ? 150 : 100,
-                height: isActive ? 150 : 100,
-                child: Image.asset(logo),
-              ),
-              SizedBox(height: 30),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 28,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.2,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  description,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white.withOpacity(0.9),
-                    height: 1.5,
+              Column(
+                children: [
+                  AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    width: isActive ? 150 : 100,
+                    height: isActive ? 150 : 100,
+                    child: Image.asset(logo),
                   ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Spacer(),
-              // مؤشرات النقاط
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(3, (index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 6),
-                    height: 8,
-                    width: currentPage == index ? 24 : 8,
-                    decoration: BoxDecoration(
-                      color: currentPage == index ? primaryColor : inactiveDotColor,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                  );
-                }),
-              ),
-              SizedBox(height: 30),
-              // زر Next أو Get Started
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: isLastPage ? onGetStarted : onNext,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: primaryColor,
-                    padding: EdgeInsets.symmetric(vertical: 18),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 3,
-                  ),
-                  child: Text(
-                    isLastPage ? "Get Started" : "Next",
+                  SizedBox(height: 30),
+                  Text(
+                    title,
                     style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 28,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.2,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      description,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white.withOpacity(0.9),
+                        height: 1.5,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                ),
+                ],
+              ),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      totalPages,
+                          (index) => Container(
+                        margin: EdgeInsets.symmetric(horizontal: 6),
+                        height: 8,
+                        width: currentPage == index ? 24 : 8,
+                        decoration: BoxDecoration(
+                          color: currentPage == index ? primaryColor : inactiveDotColor,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: isLastPage ? onGetStarted : onNext,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        padding: EdgeInsets.symmetric(vertical: 18),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 3,
+                      ),
+                      child: Text(
+                        isLastPage ? "Get Started" : "Next",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xffF4A144),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

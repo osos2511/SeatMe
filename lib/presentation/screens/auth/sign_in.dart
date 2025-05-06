@@ -108,6 +108,7 @@ class _SignInState extends State<SignIn> {
                       showSuccessDialog(
                         context,
                         "Welcome back! You have signed in successfully.",
+                        RoutesManager.mainTabsRoute,
                       );
                     }
                   },
