@@ -21,7 +21,7 @@ class RestaurantCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120.w,
+      width: 135.w,
       
       decoration: BoxDecoration(
         color: Colors.white,
@@ -46,7 +46,7 @@ class RestaurantCard extends StatelessWidget {
                   image,
                   height: 140.h,
                   width: double.infinity,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
               Positioned(

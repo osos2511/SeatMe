@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/profile.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/reservations.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/settings.dart';
-import 'home.dart';
+import 'home/home.dart';
 
 class MainTabs extends StatefulWidget {
   @override
@@ -10,9 +10,9 @@ class MainTabs extends StatefulWidget {
 }
 
 class _MainTabsState extends State<MainTabs> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
-  final List<Widget> _screens = [Home(), Reservations(), Profile(), Settings()];
+  final List<Widget> _screens = [  Settings(),Home(),Reservations(), Profile()];
 
   void _onItemTapped(int index) {
     setState(() {
