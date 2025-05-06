@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           theme: ThemeData(scaffoldBackgroundColor:  Colors.white),
       debugShowCheckedModeBanner: false,
-      initialRoute: RoutesManager.mainTabsRoute,
+      initialRoute: RoutesManager.onBoardingRoute,
       onGenerateRoute: RoutesManager.router,
     );
   });
