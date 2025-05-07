@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:seatme/core/theme/colors.dart';
 
+import '../../../../../../core/routes_manager.dart';
+
 
 
 class RestaurantCard extends StatelessWidget {
@@ -93,8 +95,7 @@ class RestaurantCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     location,
-                     maxLines: 3,
-    overflow: TextOverflow.ellipsis,
+                     maxLines: 3, overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: ColorApp.secondaryColor2, fontSize: 7.sp),
                   ),
                 ),
@@ -113,9 +114,12 @@ class RestaurantCard extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8).r),
         padding: const EdgeInsets.symmetric(horizontal: 10).r,
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, RoutesManager.reviewRoute);
+
+      },
       icon: Icon(Icons.arrow_back, size: 12.sp, color: Colors.white),
-      label: Text('Book a Table', style: TextStyle(fontSize: 12.sp, color: Colors.white),
+      label: Text('Learn More', style: TextStyle(fontSize: 12.sp, color: Colors.white),
      
       textAlign: TextAlign.left,),
     ),

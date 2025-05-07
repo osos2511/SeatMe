@@ -12,9 +12,10 @@ class DiscountCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 270.w,
+      height: 120.h,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(24.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
@@ -25,28 +26,25 @@ class DiscountCard extends StatelessWidget {
         ],
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(20)).r,
+            borderRadius: BorderRadius.circular(20.r),
             child: Image.asset(
               image,
               height: 120.h,
-
               width: 103.w,
               fit: BoxFit.cover,
             ),
           ),
-
-          SizedBox(width: 10.h),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5).r,
-                child: Center(
-                  child: Text(
+          SizedBox(width: 10.w),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0).r,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                     text,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -56,42 +54,32 @@ class DiscountCard extends StatelessWidget {
                       color: ColorApp.secondaryColor2,
                     ),
                   ),
-                ),
-              ),
-              SizedBox(height: 10.h),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 2.0).r,
-                child: Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorApp.secondaryColor1,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8).r,
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 10).r,
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: ColorApp.secondaryColor1,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.r),
                       ),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_back,
-                        size: 12.sp,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        'More Offers',
-                        style: TextStyle(fontSize: 12.sp, color: Colors.black),
-
-                        textAlign: TextAlign.left,
-                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4).r,
+                    ),
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: 12.sp,
+                      color: Colors.black,
+                    ),
+                    label: Text(
+                      'More Offers',
+                      style: TextStyle(fontSize: 12.sp, color: Colors.black),
                     ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
         ],
       ),
     );
   }
 }
+

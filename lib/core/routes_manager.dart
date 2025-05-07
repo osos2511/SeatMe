@@ -4,6 +4,7 @@ import 'package:seatme/presentation/screens/auth/otp.dart';
 import 'package:seatme/presentation/screens/auth/reset_password.dart';
 import 'package:seatme/presentation/screens/auth/sign_in.dart';
 import 'package:seatme/presentation/screens/auth/sign_up.dart';
+import 'package:seatme/presentation/screens/main_screen/tabs/home/review.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/main_tabs.dart';
 import 'package:seatme/presentation/screens/onBoarding/onBoarding.dart';
 
@@ -17,6 +18,7 @@ class RoutesManager {
   static const String reset_pass_Route = '/reset_pass_code';
   static const String onBoardingRoute = '/onBoarding';
     static const String mainTabsRoute = '/mainTabs';
+    static const String reviewRoute = '/reviewww';
 
 
 
@@ -59,6 +61,10 @@ class RoutesManager {
        case mainTabsRoute:{
         return MaterialPageRoute(builder: (context) => MainTabs(),);
     }
+      case reviewRoute:{
+        return MaterialPageRoute(
+          builder: (context) => ReviewScreen(),);
+      }
         
 
     }

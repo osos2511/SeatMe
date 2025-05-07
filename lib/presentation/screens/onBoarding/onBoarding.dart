@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:seatme/core/routes_manager.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -197,25 +198,23 @@ class OnboardingPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 30),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: isLastPage ? onGetStarted : onNext,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        padding: EdgeInsets.symmetric(vertical: 18),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        elevation: 3,
+                  ElevatedButton(
+                    onPressed: isLastPage ? onGetStarted : onNext,
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(150.w, 50.h),
+                      backgroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(vertical: 18),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Text(
-                        isLastPage ? "Get Started" : "Next",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Color(0xffF4A144),
-                          fontWeight: FontWeight.w600,
-                        ),
+                      elevation: 3,
+                    ),
+                    child: Text(
+                      isLastPage ? "Get Started" : "Next",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xffF4A144),
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),

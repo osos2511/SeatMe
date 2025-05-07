@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatme/core/routes_manager.dart';
 import 'package:seatme/core/theme/colors.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/home/widgets/discount_card.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/home/widgets/home_card.dart';
@@ -117,21 +118,18 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 50.0),
+              padding: const EdgeInsets.only(top: 25.0),
               child: CarouselSlider.builder(
                 itemCount: restaurants.length,
                 itemBuilder: (context, index, realIndex) {
                   final restaurant = restaurants[index];
-                  return GestureDetector(
-                    onTap: () {},
-                    child: Hero(
-                      tag: restaurant['name'],
-                      child: RestaurantCard(
-                        name: restaurant['name'],
-                        rating: restaurant['rating'],
-                        image: restaurant['image'],
-                        location: restaurant['location'],
-                      ),
+                  return Hero(
+                    tag: restaurant['name'],
+                    child: RestaurantCard(
+                      name: restaurant['name'],
+                      rating: restaurant['rating'],
+                      image: restaurant['image'],
+                      location: restaurant['location'],
                     ),
                   );
                 },
@@ -163,7 +161,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SizedBox(height: 22),
+            SizedBox(height: 15.h),
             Text(
               'Menu',
               style: GoogleFonts.inter(
@@ -172,7 +170,6 @@ class _HomeState extends State<Home> {
                 color: Color(0xff695A49),
               ),
             ),
-            SizedBox(height: 16),
             GridView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -214,7 +211,7 @@ class _HomeState extends State<Home> {
                   child: Hero(
                     tag: restaurant['name'],
                     child: DiscountCard(
-                     text: 'Get Special Discount\nUp to 40%',
+                     text: 'Get Special Discount Up to 40%',
                       image: 'assets/disc_image.png',
                     ),
                   ),
