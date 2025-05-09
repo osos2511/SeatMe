@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:seatme/core/routes_manager.dart';
 import 'package:seatme/core/theme/colors.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/home/widgets/discount_card.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/home/widgets/home_card.dart';
