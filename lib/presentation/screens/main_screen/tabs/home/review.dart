@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatme/core/routes_manager.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/home/widgets/most_requested_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -242,7 +243,9 @@ class _ReviewScreenState extends State<ReviewScreen> {
                       borderRadius: BorderRadius.circular(5),
                     )
                   ),
-                    onPressed: (){}, child: Text('Book a Table',style: GoogleFonts.inter(
+                    onPressed: (){
+                    Navigator.pushNamed(context, RoutesManager.reservationTableRoute);
+                    }, child: Text('Book a Table',style: GoogleFonts.inter(
                   fontWeight: FontWeight.w700,
                   color: Colors.white
 
