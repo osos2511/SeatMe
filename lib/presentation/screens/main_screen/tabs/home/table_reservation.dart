@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatme/core/routes_manager.dart';
 import 'package:table_calendar/table_calendar.dart';
-
 import '../../../../../core/theme/colors.dart';
 
 
@@ -45,6 +45,7 @@ class _TableReservationState extends State<TableReservation> {
           ),
         ),
       );
+      Navigator.pushNamed(context, RoutesManager.paymentRoute);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please select a date and time')),

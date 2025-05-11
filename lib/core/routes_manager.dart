@@ -4,6 +4,7 @@ import 'package:seatme/presentation/screens/auth/otp.dart';
 import 'package:seatme/presentation/screens/auth/reset_password.dart';
 import 'package:seatme/presentation/screens/auth/sign_in.dart';
 import 'package:seatme/presentation/screens/auth/sign_up.dart';
+import 'package:seatme/presentation/screens/main_screen/tabs/home/payment_integration.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/home/review.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/home/table_reservation.dart';
 import 'package:seatme/presentation/screens/main_screen/tabs/main_tabs.dart';
@@ -21,7 +22,8 @@ class RoutesManager {
     static const String mainTabsRoute = '/mainTabs';
     static const String reviewRoute = '/reviewww';
     static const String reservationTableRoute = '/reserveTable';
-    
+    static const String paymentRoute = '/payment';
+
 
 
 
@@ -70,6 +72,10 @@ class RoutesManager {
       }
       case reservationTableRoute:{
         return MaterialPageRoute(builder: (context) => TableReservation(),);
+      }
+
+      case paymentRoute:{
+        return MaterialPageRoute(builder: (context) => PaymentIntegration(),);
       }
     }
     return null;
